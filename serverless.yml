@@ -1,0 +1,23 @@
+service: anug-sls-intro
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  anug:
+    handler: anug.handler
+    events:
+      - http:
+          path: anug
+          method: get
+          cors: true
+
+  raffle:
+    handler: raffle.handler
+    events:
+      - http:
+          path: raffle
+          method: post
+          cors: true
